@@ -1,0 +1,56 @@
+<script>
+  import {
+    Page,
+    Block,
+    Button,
+  } from 'konsta/svelte';
+  import dayjs from 'dayjs';
+
+  let curDate
+  let curErrorDay = '';
+  let curValidDay = '';
+  const dayList = [...Array(7).keys()].map(k=>dayjs().day(k).format('dddd'))
+
+  const startDate = new Date(2000, 0, 1)
+  const endDate = new Date(2099, 12,31)
+
+  const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+  const nextDate = () => {
+    curDate = randomDate(startDate, endDate)
+    curErrorDay = '';
+    curValidDay = '';
+  }
+
+  const selectDay = (day) => {
+    curValidDay = dayjs(curDate).format('dddd')
+    if(curValidDay === day) {
+      setTimeout(nextDate, curErrorDay==='' ? 2000 : 0)
+    } else {
+      curErrorDay = day;
+    }
+  }
+
+  nextDate()
+</script>
+
+<Page> 
+  <Block class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
+    <Block class="flex w-full h-1/5">
+    <p class="text-4xl self-center text-center w-full">
+      {dayjs(curDate).format("DD MMMM YYYY")}
+    </p>
+    </Block>
+    <Block class="flex flex-col justify-around p-0 m-0 h-4/5 w-4/5 self-center">
+      {#each dayList as day}
+        <button 
+          class={'w-full text-white font-bold py-2 px-4 rounded h-12 ' + 
+            (curErrorDay==='' ? 
+              day===curValidDay ? 'bg-lime-600' : 'bg-blue-600' 
+              : 
+              curErrorDay===day ? 'bg-red-800' : day===curValidDay ? 'bg-blue-600' : 'bg-gray-700')}
+          on:click={()=>selectDay(day)}
+        >{day}</button>
+      {/each}
+    </Block>
+  </Block>
+</Page>
