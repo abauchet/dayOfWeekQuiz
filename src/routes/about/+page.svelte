@@ -1,15 +1,8 @@
 <script>
-    import {
-      Page,
-      Navbar,
-      Block,
-    } from 'konsta/svelte';
-  </script>
+</script>
   
-  <Page>
-    <Navbar title="Day of Week Quiz" />
-  
-    <Block strong>
-      <p>About.</p>
-    </Block>
-  </Page>
+<div class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
+  <div>
+    <p>About.</p>
+  </div>
+</div>

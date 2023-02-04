@@ -1,9 +1,9 @@
 <script>
     import "../app.css";
-    import { App, Toolbar, Link, Navbar, NavbarBackLink } from 'konsta/svelte';
 	import { base } from "$app/paths";
     import { pwaInfo } from 'virtual:pwa-info';
     import { onMount } from 'svelte'
+	import BottomBar from "../components/BottomBar.svelte";
 
     onMount(async () => {
         if (pwaInfo) {
@@ -32,12 +32,7 @@
     {@html webManifest}
 </svelte:head>
 
-<App safeAreas  theme="ios">
-    <Navbar title="Day of Week Quiz"></Navbar>
+<div>
     <slot />
-    <Toolbar class={'left-0 bottom-0 fixed w-full'}>
-        <Link toolbar href="{base}/">Play</Link>
-        <Link toolbar href="{base}/settings">Settings</Link>
-        <Link toolbar href="{base}/about">About</Link>
-    </Toolbar>
-</App>
+    <BottomBar/>
+</div>

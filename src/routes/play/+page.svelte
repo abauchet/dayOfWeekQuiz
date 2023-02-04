@@ -1,12 +1,7 @@
-<script>
-  import {
-    Page,
-    Block,
-    Button,
-  } from 'konsta/svelte';
+<script lang='ts'>
   import dayjs from 'dayjs';
 
-  let curDate
+  let curDate: Date;
   let curErrorDay = '';
   let curValidDay = '';
   const dayList = [...Array(7).keys()].map(k=>dayjs().day(k).format('dddd'))
@@ -14,14 +9,14 @@
   const startDate = new Date(2000, 0, 1)
   const endDate = new Date(2099, 12,31)
 
-  const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+  const randomDate = (start: Date, end: Date) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
   const nextDate = () => {
     curDate = randomDate(startDate, endDate)
     curErrorDay = '';
     curValidDay = '';
   }
 
-  const selectDay = (day) => {
+  const selectDay = (day: string) => {
     curValidDay = dayjs(curDate).format('dddd')
     if(curValidDay === day) {
       setTimeout(nextDate, curErrorDay==='' ? 2000 : 0)
@@ -33,14 +28,14 @@
   nextDate()
 </script>
 
-<Page> 
-  <Block class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
-    <Block class="flex w-full h-1/5">
+<div> 
+  <div class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
+    <div class="flex w-full h-1/5">
     <p class="text-4xl self-center text-center w-full">
       {dayjs(curDate).format("DD MMMM YYYY")}
     </p>
-    </Block>
-    <Block class="flex flex-col justify-around p-0 m-0 h-4/5 w-4/5 self-center">
+    </div>
+    <div class="flex flex-col justify-around p-0 m-0 h-4/5 w-4/5 self-center">
       {#each dayList as day}
         <button 
           class={'w-full text-white font-bold py-2 px-4 rounded h-12 ' + 
@@ -51,6 +46,6 @@
           on:click={()=>selectDay(day)}
         >{day}</button>
       {/each}
-    </Block>
-  </Block>
-</Page>
+    </div>
+  </div>
+</div>

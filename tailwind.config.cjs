@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const konstaConfig = require('konsta/config');
 
-module.exports = konstaConfig({
+module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   darkMode: 'media', // or 'class'
   theme: {
@@ -11,4 +10,4 @@ module.exports = konstaConfig({
     extend: {},
   },
   plugins: [],
-})
+}
