@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "vite dev",
 		"dev": "vite dev",
-		"deploy": "node -e \"const ghpages=require('gh-pages');ghpages.publish('build', function(err) {});",
+		"deploy": "node -e \"const ghpages=require('gh-pages');ghpages.publish('build', {dotfiles: true}, function(err) {});",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
