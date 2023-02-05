@@ -3,7 +3,8 @@
 	import { base } from "$app/paths";
     import { pwaInfo } from 'virtual:pwa-info';
     import { onMount } from 'svelte'
-	import BottomBar from "../components/BottomBar.svelte";
+	import Header from "../components/Header.svelte";
+	import Footer from "../components/Footer.svelte";
 
     onMount(async () => {
         if (pwaInfo) {
@@ -33,6 +34,7 @@
 </svelte:head>
 
 <div>
+    <Header/>
     <slot />
-    <BottomBar/>
+    <Footer/>
 </div>

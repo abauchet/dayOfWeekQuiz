@@ -2,6 +2,7 @@
 
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  plugins: [require('daisyui')],
   darkMode: 'media', // or 'class'
   theme: {
     extend: {},
@@ -9,5 +10,4 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
 }

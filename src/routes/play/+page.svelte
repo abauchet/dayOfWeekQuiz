@@ -29,7 +29,7 @@
 </script>
 
 <div> 
-  <div class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
+  <div class="flex flex-col space-x-4 h-[calc(100vh-150px)]">
     <div class="flex w-full h-1/5">
     <p class="text-4xl self-center text-center w-full">
       {dayjs(curDate).format("DD MMMM YYYY")}
@@ -38,11 +38,11 @@
     <div class="flex flex-col justify-around p-0 m-0 h-4/5 w-4/5 self-center">
       {#each dayList as day}
         <button 
-          class={'w-full text-white font-bold py-2 px-4 rounded h-12 ' + 
+          class={'btn rounded-full ' + 
             (curErrorDay==='' ? 
-              day===curValidDay ? 'bg-lime-600' : 'bg-blue-600' 
+              day===curValidDay ? 'btn-success' : 'btn-primary' 
               : 
-              curErrorDay===day ? 'bg-red-800' : day===curValidDay ? 'bg-blue-600' : 'bg-gray-700')}
+              curErrorDay===day ? 'btn-error' : day===curValidDay ? 'btn-primary' : 'btn-neutral')}
           on:click={()=>selectDay(day)}
         >{day}</button>
       {/each}
