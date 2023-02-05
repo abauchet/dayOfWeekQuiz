@@ -3,18 +3,13 @@
 	import { base } from "$app/paths";
 </script>
   
-<div> 
-  <div class="flex flex-col space-x-4 h-[calc(100vh-74px)]">
-    <div class="flex w-full h-full flex-col items-center content-center self-center justify-center">
-      <div class="flex flex-col w-full space-y-12">
-        <button class="btn btn-primary rounded-full">Hello daisyUI</button>
-        <button class="flex flex-auto"
-          on:click={()=>goto(base + "/play")}>Start
-        </button>
-        <button class="flex flex-auto" 
-          on:click={()=>goto(base + "/train")}>Train
-        </button>
-      </div>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">Hello there</h1>
+      <p class="py-6">Time for you to train your brain</p>
+      <button on:click={()=>goto(base + "/play")} class="btn btn-primary">Play</button>
+      <button on:click={()=>goto(base + "/train")} class="btn btn-primary">Train</button>
     </div>
   </div>
 </div>
