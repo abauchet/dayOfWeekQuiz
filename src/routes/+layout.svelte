@@ -33,7 +33,7 @@
     {@html webManifest}
 </svelte:head>
 
-<div>
+<div class="app">
     <Header/>
     <slot />
     <Footer/>
