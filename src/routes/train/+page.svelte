@@ -85,7 +85,7 @@
             (curErrorDay===-1 ? 
             day===curValidDay ? 'btn-success' : 'btn-primary' 
               : 
-              curErrorDay===day ? 'btn-error' : day===curValidDay ? 'btn-primary' : 'btn-neutral')}
+              curErrorDay===day ? 'btn-error' : day===curValidDay ? 'btn-primary' : 'btn-outline btn-primary')}
           on:click={()=>nextYear(day)}>{day}
         </button >
       {/each}
@@ -93,7 +93,7 @@
           (curErrorDay===-1 ? 
             'btn-primary' 
             : 
-            'btn-neutral')}
+            'btn-outline btn-primary')}
         on:click={()=>nextYear(8)}>?
       </button >
     </div>

@@ -42,7 +42,7 @@
             (curErrorDay==='' ? 
               day===curValidDay ? 'btn-success' : 'btn-primary' 
               : 
-              curErrorDay===day ? 'btn-error' : day===curValidDay ? 'btn-primary' : 'btn-neutral')}
+              curErrorDay===day ? 'btn-error' : day===curValidDay ? 'btn-primary' : 'btn-outline btn-primary')}
           on:click={()=>selectDay(day)}
         >{day}</button>
       {/each}
@@ -51,7 +51,7 @@
       (curErrorDay==='' ? 
         'btn-primary' 
         : 
-        'btn-neutral')}
+        'btn-outline btn-primary')}
         on:click={()=>selectDay('?')}>?</button>
     </div>
   </div>

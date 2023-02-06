@@ -16,7 +16,7 @@ const config = {
 				background_color: "#ffffff",
 				icons: [
 					{
-						src: '/fox-icon.png',
+						src: '/dayOfWeekQuiz/fox-icon.png',
 						sizes: '192x192',
 						type: 'image/png',
 					},
